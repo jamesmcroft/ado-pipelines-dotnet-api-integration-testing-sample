@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39486A83-E22C-4DB3-BBB2-13FB6B0E5C24}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4090D4DD-CAAB-4FE0-A80B-8DFBFACA5869}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.API", "src\Sample.API\Sample.API.csproj", "{A5178F7B-C34D-47A0-A841-944EDFDB7065}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.API.Tests", "tests\Sample.API.Tests\Sample.API.Tests.csproj", "{4442EECA-B546-493F-A156-173ED5104A56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5178F7B-C34D-47A0-A841-944EDFDB7065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5178F7B-C34D-47A0-A841-944EDFDB7065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5178F7B-C34D-47A0-A841-944EDFDB7065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5178F7B-C34D-47A0-A841-944EDFDB7065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4442EECA-B546-493F-A156-173ED5104A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4442EECA-B546-493F-A156-173ED5104A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4442EECA-B546-493F-A156-173ED5104A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4442EECA-B546-493F-A156-173ED5104A56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4442EECA-B546-493F-A156-173ED5104A56} = {4090D4DD-CAAB-4FE0-A80B-8DFBFACA5869}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5E50333-0920-4EB5-BB87-9A5BF2A03B34}
+	EndGlobalSection
+EndGlobal

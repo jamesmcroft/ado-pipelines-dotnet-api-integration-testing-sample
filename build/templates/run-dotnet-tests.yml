@@ -1,0 +1,41 @@
+parameters:
+  - name: dotnetVersion
+    type: string
+    default: "8.0.x"
+  - name: projectName
+    type: string
+    default: ""
+
+steps:
+  - task: UseDotNet@2
+    displayName: "Use .NET ${{parameters.dotnetVersion}}"
+    inputs:
+      packageType: "sdk"
+      version: ${{parameters.dotnetVersion}}
+
+  - task: DockerCompose@0
+    displayName: "Run Docker Containers"
+    inputs:
+      dockerComposeFile: "docker-compose.yml"
+      dockerComposeCommand: "up -d"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Restore ${{parameters.projectName}} Project"
+    inputs:
+      command: restore
+      includeNuGetOrg: true
+      projects: $(System.DefaultWorkingDirectory)/src/${{parameters.projectName}}
+
+  - task: DotNetCoreCLI@2
+    displayName: "Restore ${{parameters.projectName}} Tests"
+    inputs:
+      command: "restore"
+      includeNuGetOrg: true
+      projects: "$(System.DefaultWorkingDirectory)/tests/${{parameters.projectName}}*/*.csproj"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Run ${{parameters.projectName}} Tests"
+    inputs:
+      command: "test"
+      arguments: "/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura"
+      projects: "$(System.DefaultWorkingDirectory)/tests/${{parameters.projectName}}*/*.csproj"

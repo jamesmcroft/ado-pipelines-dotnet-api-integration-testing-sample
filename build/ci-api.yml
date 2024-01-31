@@ -1,0 +1,28 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - src/Sample.API/*
+      - tests/Sample.API.Tests/*
+      - build/ci-api.yml
+
+variables:
+  - name: vmImage
+    value: "ubuntu-latest"
+  - name: projectName
+    value: "Sample.API"
+
+stages:
+  - stage: build
+    displayName: "Build"
+    jobs:
+      - job: test
+        displayName: "Test"
+        pool:
+          vmImage: $(vmImage)
+        steps:
+          - template: templates/run-dotnet-tests.yml
+            parameters:
+              projectName: $(projectName)
